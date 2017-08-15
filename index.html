@@ -1,19 +1,50 @@
-<!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-
-<!--
-<FireBoxRoom>
-  <Room use_local_asset="room1">
-  </Room>
-</FireBoxRoom>
--->
-
-<iframe allowfullscreen frameborder='0' scrolling='no' src='https://janusvr.com/widget/JanusWidget/index.html?url=darbdude.world&title=Peek&image=https%3A//janusvr.com/backgrounds/default.jpg&description=Click%20here%20to%20view%20a%20three%20dimensional%20world%20inside%20of%20your%20browser.'></iframe>
-
-
-
-</body>
+	<head>
+		<title>Unreal Export</title>
+	</head>
+	<body>
+		<FireBoxRoom>
+			<Assets>
+				<AssetObject id="Floor_400x400" src="Floor_400x400.fbx" />
+				<AssetObject id="Wall_Door_400x300" src="Wall_Door_400x300.fbx" />
+				<AssetObject id="Wall_400x300" src="Wall_400x300.fbx" />
+				<AssetObject id="SM_DoorFrame" src="SM_DoorFrame.fbx" />
+				<AssetObject id="SM_SkySphere" src="SM_SkySphere.fbx" />
+				<AssetImage id="M_Basic_Floor_BaseColor" src="M_Basic_Floor_BaseColor.png" />
+				<AssetImage id="HQ_Lightmap0_1" src="HQ_Lightmap0_1.exr" />
+				<AssetImage id="M_Basic_Wall_BaseColor" src="M_Basic_Wall_BaseColor.png" />
+				<AssetImage id="M_Frame_BaseColor" src="M_Frame_BaseColor.png" />
+				<AssetImage id="MaterialInstanceDynamic_18_BaseColor" src="MaterialInstanceDynamic_18_BaseColor.png" />
+				<AssetImage id="HQ_Lightmap0_2" src="HQ_Lightmap0_2.exr" />
+			</Assets>
+			<Room>
+				<Object id = "Floor_400x400" pos="0.0 0.0 0.0" image_id="M_Basic_Floor_BaseColor" js_id="Floor_400x400_5" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.123047 0.246094 0.625977 0.751953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "EditorSphere" pos="0.0 1.29 0.0" js_id="StaticMeshActor_1" lighting="true" scale="0.008 0.008 0.008" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Floor_400x400" pos="4.0 0.0 0.0" image_id="M_Basic_Floor_BaseColor" js_id="Floor_400x401" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.123047 0.246094 0.125977 0.251953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Floor_400x400" pos="0.0 0.0 -4.0" image_id="M_Basic_Floor_BaseColor" js_id="Floor_400x402" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.123047 0.246094 0.125977 0.001953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Floor_400x400" pos="4.0 0.0 -4.0" image_id="M_Basic_Floor_BaseColor" js_id="Floor_400x403" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.123047 0.246094 0.000977 0.251953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Wall_Door_400x300" pos="7.9 0.0005 -4.0" image_id="M_Basic_Wall_BaseColor" js_id="Wall_Door_400x300_11" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.248047 0.496094 0.000977 0.501953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Floor_400x400" pos="0.0 0.0 -8.0" image_id="M_Basic_Floor_BaseColor" js_id="Floor_400x404" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.123047 0.246094 0.250977 0.251953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Floor_400x400" pos="4.0 0.0 -8.0" image_id="M_Basic_Floor_BaseColor" js_id="Floor_400x405" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.123047 0.246094 0.375977 0.251953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Wall_400x300" pos="7.9 0.0005 -8.0" image_id="M_Basic_Wall_BaseColor" js_id="Wall_Door_400x301" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.060547 0.121094 0.500977 0.376953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Wall_400x300" pos="7.9 0.0005 0.0" image_id="M_Basic_Wall_BaseColor" js_id="Wall_Door_400x302" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.060547 0.121094 0.500977 0.251953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Wall_Door_400x300" pos="0.1 0.0005 -4.0" image_id="M_Basic_Wall_BaseColor" js_id="Wall_Door_400x303" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.248047 0.496094 0.250977 0.501953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Wall_400x300" pos="0.1 0.0005 -8.0" image_id="M_Basic_Wall_BaseColor" js_id="Wall_Door_400x304" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.060547 0.121094 0.500977 0.001953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Wall_400x300" pos="0.1 0.0005 0.0" image_id="M_Basic_Wall_BaseColor" js_id="Wall_Door_400x305" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.060547 0.121094 0.563477 0.001953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Wall_400x300" pos="0.0 0.0005 0.1" image_id="M_Basic_Wall_BaseColor" js_id="Wall_Door_400x306" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.060547 0.121094 0.563477 0.251953" scale="0.01 0.01 0.01" xdir="-0.000002 0.0 1.0" ydir="0.0 1.0 0.0" zdir="1.0 0.0 0.000002" />
+				<Object id = "Wall_400x300" pos="4.0 0.0005 0.1" image_id="M_Basic_Wall_BaseColor" js_id="Wall_Door_400x307" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.060547 0.121094 0.563477 0.126953" scale="0.01 0.01 0.01" xdir="-0.000002 0.0 1.0" ydir="0.0 1.0 0.0" zdir="1.0 0.0 0.000002" />
+				<Object id = "Wall_400x300" pos="0.0 0.0005 -12.099999" image_id="M_Basic_Wall_BaseColor" js_id="Wall_Door_400x308" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.060547 0.121094 0.563477 0.376953" scale="0.01 0.01 0.01" xdir="-0.000002 0.0 1.0" ydir="0.0 1.0 0.0" zdir="1.0 0.0 0.000002" />
+				<Object id = "Wall_400x300" pos="4.0 0.0005 -12.099999" image_id="M_Basic_Wall_BaseColor" js_id="Wall_Door_400x309" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.060547 0.121094 0.500977 0.126953" scale="0.01 0.01 0.01" xdir="-0.000002 0.0 1.0" ydir="0.0 1.0 0.0" zdir="1.0 0.0 0.000002" />
+				<Object id = "Floor_400x400" pos="0.0 3.0 0.0" image_id="M_Basic_Floor_BaseColor" js_id="Floor_400x406" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.123047 0.246094 0.500977 0.501953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Floor_400x400" pos="4.0 3.0 0.0" image_id="M_Basic_Floor_BaseColor" js_id="Floor_400x407" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.123047 0.246094 0.375977 0.001953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Floor_400x400" pos="0.0 3.0 -4.0" image_id="M_Basic_Floor_BaseColor" js_id="Floor_400x408" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.123047 0.246094 0.250977 0.001953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Floor_400x400" pos="4.0 3.0 -4.0" image_id="M_Basic_Floor_BaseColor" js_id="Floor_400x409" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.123047 0.246094 0.875977 0.751953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Floor_400x400" pos="0.0 3.0 -8.0" image_id="M_Basic_Floor_BaseColor" js_id="Floor_400x410" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.123047 0.246094 0.500977 0.751953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "Floor_400x400" pos="4.0 3.0 -8.0" image_id="M_Basic_Floor_BaseColor" js_id="Floor_400x411" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.123047 0.246094 0.000977 0.001953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "SM_DoorFrame" pos="5.0 0.0 -7.7" image_id="M_Frame_BaseColor" js_id="SM_DoorFrame_40" lighting="false" lmap_id="HQ_Lightmap0_1" lmap_sca="0.123047 0.246094 0.750977 0.751953" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "SM_SkySphere" pos="0.0 16384.009766 0.0" image_id="MaterialInstanceDynamic_43_BaseColor" js_id="BP_Sky_Sphere_C_0" lighting="true" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+				<Object id = "SM_SkySphere" pos="0.0 0.0 0.0" image_id="MaterialInstanceDynamic_18_BaseColor" js_id="BP_Sky_Sphere_26" lighting="false" lmap_id="HQ_Lightmap0_2" lmap_sca="0.46875 0.9375 0.015625 0.03125" scale="0.01 0.01 0.01" xdir="1.0 0.0 0.0" ydir="0.0 1.0 0.0" zdir="0.0 0.0 -1.0" />
+			</Room>
+		</FireBoxRoom>
+	</body>
 </html>
