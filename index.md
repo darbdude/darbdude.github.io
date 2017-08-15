@@ -1,19 +1,5 @@
-<html>
-<head>
-<title>Example title</title>
-</head>
-<body>
- <!--
+<FireBoxRoom>
+  <Room use_local_asset="room1">
+  </Room>
+</FireBoxRoom>
 
-  <FireBoxRoom>
-   <Assets>
-
-   </Assets>
-   <Room>
-
-   </Room>
-  </FireBoxRoom>
-
--->
-</body>
-</html>
