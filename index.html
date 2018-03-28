@@ -1,93 +1,32 @@
-<!DOCTYPE html>
+<!-- Written with Janus VR.  URL: file:///C:/Users/Giovanni/Desktop/world/index.html -->
 <html>
 <head>
+<title></title>
 <meta charset="utf-8">
 </head>
 <body>
+
 <FireBoxRoom>
 <Assets>
-<AssetWebSurface id="ws_home" height="720" show_url_bar="false" src="http://www.twitch.tv/darbdude" tex_colorspace="linear" width="1280" />
-<AssetObject id="Circle001" src="Circle001.obj" mtl="Circle001.mtl" />
-<AssetObject id="Circle002" src="Circle002.obj" mtl="Circle002.mtl" />
-<AssetObject id="eye002" src="eye002.obj" mtl="eye002.mtl" />
-<AssetObject id="eye01" src="eye01.obj" mtl="eye01.mtl" />
-<AssetObject id="goth_arc01" src="goth_arc01.obj" mtl="goth_arc01.mtl" />
-<AssetObject id="kit_40x40m_terrain_0114" src="kit_40x40m_terrain_0114.obj" mtl="kit_40x40m_terrain_0114.mtl" />
-<AssetObject id="kit_40x40m_terrain_2" src="kit_40x40m_terrain_2.obj" mtl="kit_40x40m_terrain_2.mtl" />
-<AssetObject id="moon" src="moon.obj" mtl="moon.mtl" />
-<AssetObject id="nexus002" src="nexus002.obj" mtl="nexus002.mtl" />
-<AssetObject id="nexus003" src="nexus003.obj" mtl="nexus003.mtl" />
-<AssetObject id="Object001" src="Object001.obj" mtl="Object001.mtl" />
-<AssetObject id="Object002" src="Object002.obj" mtl="Object002.mtl" />
-<AssetObject id="Object003" src="Object003.obj" mtl="Object003.mtl" />
-<AssetObject id="outdoor_shadeden01" src="outdoor_shadeden01.obj" mtl="outdoor_shadeden01.mtl" />
-<AssetObject id="Plane003" src="Plane003.obj" mtl="Plane003.mtl" />
-<AssetObject id="PM3D_Sphere3D1" src="PM3D_Sphere3D1.obj" mtl="PM3D_Sphere3D1.mtl" />
-<AssetObject id="Rectangle002" src="Rectangle002.obj" mtl="Rectangle002.mtl" />
-<AssetObject id="Rectangle003" src="Rectangle003.obj" mtl="Rectangle003.mtl" />
-<AssetObject id="Rectangle004" src="Rectangle004.obj" mtl="Rectangle004.mtl" />
-<AssetObject id="Rectangle005" src="Rectangle005.obj" mtl="Rectangle005.mtl" />
-<AssetObject id="Rectangle006" src="Rectangle006.obj" mtl="Rectangle006.mtl" />
-<AssetObject id="Rectangle007" src="Rectangle007.obj" mtl="Rectangle007.mtl" />
-<AssetObject id="Rectangle008" src="Rectangle008.obj" mtl="Rectangle008.mtl" />
-<AssetObject id="Rectangle009" src="Rectangle009.obj" mtl="Rectangle009.mtl" />
-<AssetObject id="ReferenceMan" src="ReferenceMan.obj" mtl="ReferenceMan.mtl" />
-<AssetObject id="ReferenceMan001" src="ReferenceMan001.obj" mtl="ReferenceMan001.mtl" />
-<AssetObject id="ReferenceMan002" src="ReferenceMan002.obj" mtl="ReferenceMan002.mtl" />
-<AssetObject id="ReferenceMan003" src="ReferenceMan003.obj" mtl="ReferenceMan003.mtl" />
-<AssetObject id="ReferenceMan004" src="ReferenceMan004.obj" mtl="ReferenceMan004.mtl" />
-<AssetObject id="ReferenceMan005" src="ReferenceMan005.obj" mtl="ReferenceMan005.mtl" />
-<AssetObject id="ReferenceMan006" src="ReferenceMan006.obj" mtl="ReferenceMan006.mtl" />
-<AssetObject id="ReferenceMan007" src="ReferenceMan007.obj" mtl="ReferenceMan007.mtl" />
-<AssetObject id="ReferenceMan008" src="ReferenceMan008.obj" mtl="ReferenceMan008.mtl" />
-<AssetObject id="ReferenceMan009" src="ReferenceMan009.obj" mtl="ReferenceMan009.mtl" />
-<AssetObject id="Sphere003" src="Sphere003.obj" mtl="Sphere003.mtl" />
-<AssetObject id="start_platform001" src="start_platform001.obj" mtl="start_platform001.mtl" />
-<AssetObject id="start_platform002" src="start_platform002.obj" mtl="start_platform002.mtl" />
-<AssetObject id="Text001" src="Text001.obj" mtl="Text001.mtl" />
+<AssetObject id="boombox" src="https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/BoomBox/glTF/BoomBox.gltf" />
+<AssetObject id="baramundifish" src="https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/BarramundiFish/glTF/BarramundiFish.gltf" />
+<AssetObject id="metalroughnesspheres" src="https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/MetalRoughSpheres/glTF/MetalRoughSpheres.gltf" />
+<AssetScript src="world.js" />
+<AssetScript src="https://vesta.janusvr.com/static/js/live_update.js" />
+<AssetShader id="shader_id" src="frag.txt" vertex_src="vert.txt" />
+<AssetSound id="backgroundsound01" src="worldbackgroundsound01.ogg" />
+<AssetWebSurface id="janusWebSurface" height="1080" src="https://janusvr.com" width="1920" />
+<AssetWebSurface id="vesta" height="800" src="https://twitch.tv/darbdude" width="1000" />
 </Assets>
-<Room gravity="-9.800000" walk_speed="1.800000" run_speed="5.400000" jump_velocity="5.000000" near_dist="0.002500" far_dist="500.000000" teleport_min_dist="5.000000" teleport_max_dist="100.000000" default_sounds="true" cursor_visible="true" fog="false" fog_mode="exp" fog_density="0.200000" fog_start="1.000000" fog_end="100.000000" fog_col="0.800000 0.800000 0.800000" locked="false" pos="7.481132 5.343665 6.507640" fwd="-0.651558 0.614170 -0.445271" use_local_asset="room_plane" visible="false" col="1.000000 1.000000 1.000000">
-<Object id="Circle001" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="Circle001" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="Circle002" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="Circle002" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="eye002" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="eye002" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="eye01" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="eye01" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="goth_arc01" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="goth_arc01" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="kit_40x40m_terrain_0114" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="kit_40x40m_terrain_0114" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="kit_40x40m_terrain_2" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="kit_40x40m_terrain_2" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="moon" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="moon" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="nexus002" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="nexus002" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="nexus003" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="nexus003" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="Object001" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="Object001" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="Object002" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="Object002" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="Object003" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="Object003" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="outdoor_shadeden01" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="outdoor_shadeden01" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="Plane003" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="Plane003" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="PM3D_Sphere3D1" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="PM3D_Sphere3D1" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="Rectangle002" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="Rectangle002" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="Rectangle003" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="Rectangle003" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="Rectangle004" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="Rectangle004" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="Rectangle005" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="Rectangle005" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="Rectangle006" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="Rectangle006" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="Rectangle007" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="Rectangle007" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="Rectangle008" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="Rectangle008" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="Rectangle009" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="Rectangle009" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="ReferenceMan" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="ReferenceMan" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="ReferenceMan001" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="ReferenceMan001" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="ReferenceMan002" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="ReferenceMan002" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="ReferenceMan003" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="ReferenceMan003" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="ReferenceMan004" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="ReferenceMan004" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="ReferenceMan005" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="ReferenceMan005" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="ReferenceMan006" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="ReferenceMan006" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="ReferenceMan007" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="ReferenceMan007" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="ReferenceMan008" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="ReferenceMan008" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="ReferenceMan009" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="ReferenceMan009" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="Sphere003" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="Sphere003" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="start_platform001" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="start_platform001" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="start_platform002" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="start_platform002" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="Text001" locked="false" cull_face="back" visible="true" col="1 1 1" lighting="true" collision_id="Text001" pos="0.000000 0.000000 -0.000000" scale="1.000000 1.000000 1.000000" xdir="-1.000000 0.000000 -0.000000" ydir="0.000000 -0.000000 1.000000" zdir="0.000000 -1.000000 -0.000000" />
-<Object id="plane" locked="true" interp_time="0.2" pos="0 5 -2.1" scale="4 2.25 1" lighting="false" collision_id="plane" websurface_id="ws_home" image_id="ws_login_bg" />
+<Room use_local_asset="room_plane" cursor_visible="false" party_mode="false" teleport_min_dist="10">
+<Object id="cube" js_id="stopcube" onclick="LightOff()" interp_time="0.2" pos="3 1 3" col="#ff0000" rotate_axis="0 0 1" rotate_deg_per_sec="100" />
+<Object id="cube" js_id="playcube" onclick="LightOn()" interp_time="0.2" pos="3 1 1.5" col="#00ff00" />
+<Object id="plane" interp_time="0.2" pos="0 2 4" xdir="-1 0 0" zdir="0 0 -1" scale="3 2 1" lighting="true" cull_face="none" websurface_id="vesta" />
+<Object id="boombox" interp_time="0.2" pos="0 1 -2" scale="50 50 50" />
+<Object id="baramundifish" interp_time="0.2" pos="1 1 -2" />
+<Object id="metalroughnesspheres" interp_time="0.2" pos="-1 1 -2" />
+
+<Light interp_time="0.2" pos="2 7.5 6.7" xdir="0 0 0" ydir="0 0 0" zdir="0 -1 0" col="#ffe5bf" light_intensity="100" light_cone_angle="0.8" light_cone_exponent="40" light_range="12" />
+<Light interp_time="0.2" pos="-2 7.5 6.7" xdir="0 0 0" ydir="0 0 0" zdir="0 -1 0" col="#ffe5bf" light_intensity="100" light_cone_angle="0.8" light_cone_exponent="40" light_range="12" />
 </Room>
 </FireBoxRoom>
-</body>
-</html>
-
