@@ -1,0 +1,276 @@
+#version 330 core
+#define MAX_JOINTS 128
+
+#define tau 6.2831853
+
+//https://www.shadertoy.com/view/ldKGDh
+
+// BEGIN --- Textures --- 
+	uniform sampler2D iTexture0; // Albedo
+	uniform sampler2D iTexture1; // Specular
+	uniform sampler2D iTexture2; // Smoothness
+	uniform sampler2D iTexture3; // Normal
+	uniform sampler2D iTexture4; // Height
+	uniform sampler2D iTexture5; // Occlusion
+	uniform sampler2D iTexture6; // Emission
+	uniform sampler2D iTexture7; // Detail Mask
+	uniform sampler2D iTexture8; // Detail Albedo
+	uniform sampler2D iTexture9; // Detail Normal
+	uniform samplerCube iCubeTexture0; // Skybox
+	uniform samplerCube iCubeTexture1; // Skybox Radiance
+	uniform samplerCube iCubeTexture2; // Skybox Irradiance
+// END --- Textures --- 
+
+// BEGIN --- Uniforms --- 
+
+	// BEGIN --- Frame --- 
+		uniform vec4 iLeftEye;
+		uniform vec4 iMouse;
+		uniform vec4 iResolution;
+		uniform vec4 iGlobalTime;
+	// END --- Frame --- 
+	
+	// BEGIN --- Room --- 
+		uniform mat4 iMiscRoomData;
+		uniform vec4 iPlayerPosition;
+		uniform vec4 iUseClipPlane;
+		uniform vec4 iClipPlane;
+		uniform vec4 iFogEnabled;
+		uniform vec4 iFogMode;
+		uniform vec4 iFogDensity;
+		uniform vec4 iFogStart;
+		uniform vec4 iFogEnd;
+		uniform vec4 iFogCol;
+		uniform mat4 iRoomMatrix;
+	// END --- Room --- 
+	
+	// BEGIN --- Object --- 
+		uniform mat4 iMiscObjectData;
+		uniform vec4 iConstColour;
+		uniform vec4 iChromaKeyColour;
+		uniform vec4 iUseLighting;
+		uniform vec4 iObjectPickID;
+		uniform mat4 iModelMatrix;
+		uniform mat4 iViewMatrix;
+		uniform mat4 iProjectionMatrix;
+		uniform mat4 iInverseViewMatrix;
+		uniform mat4 iModelViewMatrix;
+		uniform mat4 iModelViewProjectionMatrix;
+		uniform mat4 iTransposeInverseModelMatrix;
+		uniform mat4 iTransposeInverseModelViewMatrix;
+		uniform vec4 iBlend;
+		uniform vec4 iUseSkelAnim;
+		uniform mat4 iSkelAnimJoints[MAX_JOINTS];
+	// END --- Object --- 
+	
+	// BEGIN --- Material --- 
+	uniform vec4 iAmbient;
+	uniform vec4 iDiffuse;
+	uniform vec4 iSpecular;
+	uniform vec4 iShininess;
+	uniform vec4 iEmission;
+	uniform vec4 iUseTexture[4];
+	// BEGIN --- Material --- 
+	
+// END --- Uniforms --- 
+
+// BEGIN --- Input Interpolants --- 
+	flat in vec3 iPosition;
+	flat in vec3 iPositionWorld;
+	flat  in vec3 iPositionCamera;
+	flat  in vec3 iNormal;
+	flat  in vec3 iNormalWorld;
+	flat  in vec3 iNormalCamera;
+	flat  in vec2 iTexCoord0;
+	flat in vec2 iTexCoord1;
+// END --- Input Interpolants --- 
+
+// BEGIN --- Framebuffer Outputs --- 
+	layout(location = 0) out vec4 out_color;
+// END --- Framebuffer Outputs --- 
+
+// BEGIN --- Normal Encode ---
+	vec4 encodeNormal(vec3 viewSpaceNormal)
+	{
+		const float scale_rcp = 1.0 / 1.7777;
+		vec2 encodedNormal = viewSpaceNormal.xy / (viewSpaceNormal.z + 1);
+		encodedNormal *= scale_rcp;
+		encodedNormal = encodedNormal * 0.5 + 0.5;
+		return vec4(encodedNormal, 0.0, 1.0);
+	}
+	
+	// Credit: http://www.thetenthplanet.de/archives/1180
+	vec3 tangentSpaceToObjectSpaceNormal(vec3 position, vec2 UV, vec3 objectSpaceNormal, vec3 tangentSpaceNormal)
+	{
+		vec3 dFdx_pos = dFdx(position);
+		vec3 dFdy_pos = dFdy(position);
+		vec2 dFdx_UV = dFdx(UV);
+		vec2 dFdy_UV = dFdy(UV);
+
+		// solve the linear system
+		vec3 dp2perp = cross(dFdy_pos, objectSpaceNormal);
+		vec3 dp1perp = cross(objectSpaceNormal, dFdx_pos);
+		vec3 tangent = dp2perp * dFdx_UV.x + dp1perp * dFdy_UV.x;
+		vec3 biTangent = dp2perp * dFdx_UV.y + dp1perp * dFdy_UV.y;
+
+		// construct a scale-invariant frame 
+		float invmax = inversesqrt(max(dot(tangent, tangent), dot(biTangent, biTangent)));
+		mat3 TBN = mat3(tangent * invmax, biTangent * invmax, objectSpaceNormal);
+		
+		return normalize(TBN * tangentSpaceNormal);
+	}
+// END --- Normal Encode --- 
+
+vec4 sRGBToLinear(vec4 sRGB)
+{
+	bvec4 cutoff = lessThan(sRGB, vec4(0.04045));
+	vec4 higher = pow((sRGB + vec4(0.055)) / vec4(1.055), vec4(2.4));
+	vec4 lower = sRGB / vec4(12.92);
+	return vec4(mix(higher, lower, cutoff).rgb, sRGB.a);
+}
+
+
+mat2 makem2(float theta){float c = cos(theta);float s = sin(theta);return mat2(c,-s,s,c);}
+
+
+
+float hash(vec2 p)  // replace this by something better
+{
+    p  = 50.0*fract( p*0.3183099 + vec2(0.71,0.113));
+    return -1.0+2.0*fract( p.x*p.y*(p.x+p.y) );
+}
+
+
+float noise(vec2 x )
+{
+    vec2 i = floor( x );
+    vec2 f = fract( x );
+	
+	vec2 u = f*f*(3.0-2.0*f);
+
+    return mix( mix( hash( i + vec2(0.0,0.0) ), 
+                     hash( i + vec2(1.0,0.0) ), u.x),
+                mix( hash( i + vec2(0.0,1.0) ), 
+                     hash( i + vec2(1.0,1.0) ), u.x), u.y);
+}
+
+
+
+//float noise(vec2 x ){return texture(iTexture0, x*.01).x;}
+
+
+
+
+
+
+
+float fbm(vec2 p)
+{	
+vec4 tt=fract(vec4((iGlobalTime.x*0.15)*2.)+vec4(0.0,0.25,0.5,0.75));
+vec2 p1=p-normalize(p)*tt.x;
+vec2 p2=vec2(1.0)+p-normalize(p)*tt.y;
+vec2 p3=vec2(2.0)+p-normalize(p)*tt.z;
+vec2 p4=vec2(3.0)+p-normalize(p)*tt.w;
+vec4 tr=vec4(1.0)-abs(tt-vec4(0.5))*2.0;//*vec4(0.0,1.0,0.0,1.0);
+float z=2.;
+vec4 rz = vec4(0.);
+for (float i= 1.;i < 4.;i++)
+{
+rz+= abs((vec4(noise(p1*2),noise(p2*2),noise(p3*2),noise(p4*2))-vec4(0.1))*10.)/z;
+z = z*2.;
+p1 = p1*2.;
+p2 = p2*2.;
+p3 = p3*2.;
+p4 = p4*2.;
+}
+return dot(rz,tr)*0.25;
+}
+float dualfbm(in vec2 p)
+{
+    //get two rotated fbm calls and displace the domain
+	vec2 p2 = p*.7;
+	vec2 basis = vec2(fbm(p2-(iGlobalTime.x*0.15)*1.6),fbm(p2+(iGlobalTime.x*0.15)*1.7));
+	basis = (basis-.5)*1.2;
+	p += basis;
+	
+	//coloring
+	//return fbm(p); //*makem2((iGlobalTime.x*0.15)*2.0));
+	return fbm(p *makem2((iGlobalTime.x*0.15)*2.0));
+}
+
+float circ(vec2 p) 
+{
+	float r = length(p);
+	r = log(sqrt(r));
+	return abs(mod(r*2.,tau)-4.54)*3.+.5;
+
+}
+
+
+void main(void)
+{
+	if (iUseTexture[0].x == 1)
+	{
+		out_color = iConstColour * texture(iTexture0, iTexCoord0.xy);
+	}
+	else
+	{
+
+	
+		//setup system
+	vec2 p = vec2(iTexCoord0.s*0.85,(iTexCoord0.t*1.35) - 1.35);
+	//vec2 p = fragCoord.xy / iResolution.xy-0.5;
+	//p*=4.;
+	
+    float rz = dualfbm(p);
+	
+	//rings
+	//p /= 7.0; //exp(mod((iGlobalTime.x*0.15)*10.,3.14159));
+	//rz *= pow(abs((0.0-circ(p))),.99);
+    
+    rz *= abs((-circ(vec2(p.x / 4.2, p.y / 7.0))));
+    rz *= abs((-circ(vec2(p.x / 4.2, p.y / 7.0))));
+    rz *= abs((-circ(vec2(p.x / 4.2, p.y / 7.0))));
+	
+	//final color
+	vec3 col = vec3(.8,0.8,0.8)/rz;
+	col=pow(abs(col),vec3(.99));
+	out_color = vec4(col,1.);
+	
+	
+		
+		out_color *= iConstColour;
+	}
+
+	if (iUseTexture[0].y == 1)
+	{
+		out_color.a *= texture(iTexture1, iTexCoord0.xy).a;
+	}
+	
+	vec4 fog_color = vec4(1.0, 1.0, 1.0, 1.0);
+	if (iFogEnabled.x == 1.0)
+	{
+		//compute length from eye to fragment
+		float fragDistance = length(iPositionCamera);   
+		//compute blend value
+		float fogInterpolator;
+		if (iFogMode.x == 0.0)
+		{
+			fogInterpolator = (iFogEnd.x - fragDistance) / (iFogEnd.x - iFogStart.x);
+		}
+		else if (iFogMode.x == 1.0)
+		{
+			fogInterpolator = exp(-iFogDensity.x * fragDistance);
+		}
+		else
+		{
+			fogInterpolator = exp(-(iFogDensity.x * fragDistance)*(iFogDensity.x * fragDistance));
+		}
+		fogInterpolator = clamp(fogInterpolator, 0.0, 1.0);
+		fog_color = mix(iFogCol.rgba, vec4(1.0,1.0,1.0,1.0), fogInterpolator);
+	}
+	
+	out_color.rgb *= fog_color.rgb;
+	
+	out_color.rgb *= out_color.a;
+}

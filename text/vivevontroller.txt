@@ -1,0 +1,127 @@
+<!-- Written with Janus VR.  URL: https://nazrin.net/Button/ -->
+<html>
+<head>
+<title>push button, receive bacon</title>
+<meta charset="utf-8">
+</head>
+<body>
+<!--
+<FireBoxRoom>
+<Assets>
+<AssetImage id="image_5" src="image_109828.png" tex_alpha="undefined" tex_colorspace="sRGB" />
+<AssetImage id="image_2" src="5587706_sd.jpeg" tex_alpha="undefined" tex_colorspace="sRGB" />
+<AssetImage id="image_4" src="push-button-receive-bacon.jpg" tex_alpha="undefined" tex_colorspace="sRGB" />
+<AssetImage id="image_1" src="yy4vtsbwvdts7gqalidy.jpg" tex_alpha="undefined" tex_colorspace="sRGB" />
+<AssetImage id="image_3" src="vive-hardware-controllers-1.png" tex_alpha="undefined" tex_colorspace="sRGB" />
+<AssetImage id="image_6" src="ControllerImage.png" tex_alpha="undefined" tex_colorspace="sRGB" />
+<AssetScript src="button.js" />
+</Assets>
+<Room use_local_asset="room_plane">
+<Object id="cube" js_id="touch_right_stick_click" interp_time="0.2" pos="-4.72 3.12 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="vive_left_trigger" interp_time="0.2" pos="4.76 2.28 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="plane" interp_time="0.2" pos="4.6 2 10.8" xdir="-1 0 0" zdir="0 0 -1" scale="5 3 1" lighting="false" collision_id="plane" image_id="image_3" />
+<Object id="cube" js_id="vive_left_trackpad_left" interp_time="0.2" pos="5.11 3.08 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="vive_left_trackpad_up" interp_time="0.2" pos="4.9 3.29 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_left_stick_right" interp_time="0.2" pos="1.48 3.05 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_left_grip" interp_time="0.2" pos="0.6 0.3 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_right_stick_click" interp_time="0.2" pos="0.93 2.77 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_left_stick_down" interp_time="0.2" pos="1.59 2.96 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_left_stick_right" interp_time="0.2" pos="0.6 1.1 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="plane" interp_time="0.2" pos="-1 1 10.8" scale="2 2 1" lighting="false" cull_face="none" collision_id="plane" image_id="image_6" />
+<Object id="cube" js_id="xbox_button_start" interp_time="0.2" pos="0.98 3.03 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="vive_right_menu" interp_time="0.2" pos="3.77 2.3 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_left_trackpad_right" interp_time="0.2" pos="1 0.9 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_left_trackpad_left" interp_time="0.2" pos="1.2 0.9 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_right_stick_click" interp_time="0.2" pos="-0.7 1.1 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="vive_left_trackpad_down" interp_time="0.2" pos="4.9 2.87 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_left_trackpad_click" interp_time="0.2" pos="1.1 0.9 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_left_trackpad_up" interp_time="0.2" pos="1.1 1 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Text interp_time="0.2" pos="8.1 5.2 10.5" xdir="-0.999533 0 -0.030529" ydir="0.013543 0.896223 -0.443396" zdir="0.027361 -0.443603 -0.895806" scale="2 3 1">room.Update Works</Text>
+<Object id="cube" js_id="vive_left_menu" interp_time="0.2" pos="4.41 3.26 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_right_grip" interp_time="0.2" pos="-0.6 0.3 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_right_menu" interp_time="0.2" pos="-0.8 0.7 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_dpad_up" interp_time="0.2" pos="1.36 2.89 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="touch_right_stick_right" interp_time="0.2" pos="-4.93 3.12 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_left_menu" interp_time="0.2" pos="0.8 0.7 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_right_trigger" interp_time="0.2" pos="-1.5 1 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Text interp_time="0.2" pos="4 5.5 10.5" xdir="-0.999533 0 -0.030529" ydir="0.013543 0.896223 -0.443396" zdir="0.027361 -0.443603 -0.895806" scale="2 3 1">room.onKeyDown works</Text>
+<Object id="cube" js_id="wmxr_right_stick_right" interp_time="0.2" pos="-0.8 1.1 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_right_trackpad_up" interp_time="0.2" pos="-1.1 1 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="touch_left_stick_left" interp_time="0.2" pos="-3.28 3.15 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_right_trigger" interp_time="0.2" pos="0.73 3.39 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="touch_right_stick_down" interp_time="0.2" pos="-4.72 2.91 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="vive_left_trackpad_click" interp_time="0.2" pos="4.9 3.08 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="vive_right_trackpad_click" interp_time="0.2" pos="4.33 2.07 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_left_stick_down" interp_time="0.2" pos="0.7 1 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_left_stick_click" interp_time="0.2" pos="0.7 1.1 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="vive_right_trackpad_up" interp_time="0.2" pos="4.33 2.28 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Text interp_time="0.2" pos="6.1 5.5 10.5" xdir="-0.999533 0 -0.030529" ydir="0.013543 0.896223 -0.443396" zdir="0.027361 -0.443603 -0.895806" scale="2 3 1">room.onKeyDown works</Text>
+<Object id="cube" js_id="wmxr_right_trackpad_down" interp_time="0.2" pos="-1.1 0.8 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_right_shoulder" interp_time="0.2" pos="0.73 3.27 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_right_stick_left" interp_time="0.2" pos="-0.6 1.1 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="touch_right_stick_up" interp_time="0.2" pos="-4.72 3.33 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="touch_left_grip" interp_time="0.2" pos="-2.95 1.87 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_right_stick_left" interp_time="0.2" pos="1.03 2.78 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_right_stick_down" interp_time="0.2" pos="0.94 2.67 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_right_trackpad_click" interp_time="0.2" pos="-1.1 0.9 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" interp_time="0.2" pos="8 5 11" col="#00ffff" collision_id="cube" />
+<Object id="cube" js_id="xbox_button_x" interp_time="0.2" pos="0.82 3.02 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="touch_left_trigger" interp_time="0.2" pos="-3.88 2.16 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="vive_left_grip" interp_time="0.2" pos="5.52 2.15 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" interp_time="0.2" pos="10 5 11" collision_id="cube" />
+<Object id="cube" js_id="wmxr_left_stick_up" interp_time="0.2" pos="0.7 1.2 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" interp_time="0.2" pos="4 5 11" col="#00ff00" collision_id="cube" />
+<Object id="cube" js_id="touch_left_stick_click" interp_time="0.2" pos="-3.49 3.15 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_right_stick_down" interp_time="0.2" pos="-0.7 1 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_left_trigger" interp_time="0.2" pos="1.53 3.39 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="touch_button_y" interp_time="0.2" pos="-3.56 2.69 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="touch_button_a" interp_time="0.2" pos="-4.91 2.71 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="touch_right_grip" interp_time="0.2" pos="-5.23 1.86 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_right_stick_up" interp_time="0.2" pos="0.93 2.86 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="touch_right_stick_left" interp_time="0.2" pos="-4.51 3.12 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_dpad_right" interp_time="0.2" pos="1.26 2.78 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="touch_left_stick_up" interp_time="0.2" pos="-3.49 3.36 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_button_b" interp_time="0.2" pos="0.59 3.02 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_button_y" interp_time="0.2" pos="0.7 3.14 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_right_trackpad_left" interp_time="0.2" pos="-1 0.9 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="plane" interp_time="0.2" pos="1 1 10.8" xdir="-1 0 0" zdir="0 0 -1" scale="2 2 1" lighting="false" cull_face="none" collision_id="plane" image_id="image_6" />
+<Text js_id="Nazrin-1-1514375997" interp_time="0.2" pos="-1.4 2.8 10.8" xdir="-1 0 0" zdir="0 0 -1" scale="2 1 1" col="#000000">X</Text>
+<Object id="cube" js_id="vive_right_trackpad_right" interp_time="0.2" pos="4.12 2.07 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_left_stick_left" interp_time="0.2" pos="1.69 3.06 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="touch_right_trigger" interp_time="0.2" pos="-4.31 2.15 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_right_stick_up" interp_time="0.2" pos="-0.7 1.2 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_right_stick_right" interp_time="0.2" pos="0.84 2.78 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_dpad_down" interp_time="0.2" pos="1.37 2.67 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="plane" interp_time="0.2" pos="0 6 10.5" xdir="-1 0 0" ydir="0 0.866026 -0.5" zdir="0 -0.5 -0.866026" scale="3 3 1" lighting="false" collision_id="plane" image_id="image_4" />
+<Object id="cube" js_id="touch_button_x" interp_time="0.2" pos="-3.3 2.71 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="plane" interp_time="0.2" pos="0 2.8 10.8" xdir="-1 0 0" zdir="0 0 -1" scale="4 1.5 1" col="#e0e0e0" lighting="false" collision_id="plane" image_id="image_1" />
+<Object id="cube" js_id="wmxr_right_trackpad_right" interp_time="0.2" pos="-1.2 0.9 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="plane" interp_time="0.2" pos="-4.1 2 10.8" xdir="-1 0 0" zdir="0 0 -1" scale="4 3 1" lighting="false" collision_id="plane" image_id="image_2" />
+<Object id="cube" js_id="xbox_dpad_left" interp_time="0.2" pos="1.46 2.78 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_left_trigger" interp_time="0.2" pos="1.5 1 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_left_stick_up" interp_time="0.2" pos="1.59 3.16 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="vive_right_trackpad_down" interp_time="0.2" pos="4.33 1.86 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" interp_time="0.2" pos="6 5 11" col="#ffff00" collision_id="cube" />
+<Object id="cube" js_id="touch_left_stick_right" interp_time="0.2" pos="-3.7 3.15 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="vive_right_grip" interp_time="0.2" pos="4.95 1.1 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="touch_left_stick_down" interp_time="0.2" pos="-3.49 2.94 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="vive_left_trackpad_right" interp_time="0.2" pos="4.69 3.08 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_button_select" interp_time="0.2" pos="1.3 3.02 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="touch_button_b" interp_time="0.2" pos="-4.64 2.68 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="plane" interp_time="0.2" pos="-10 4 5" xdir="0 0 -1" zdir="1 0 0" scale="17 8 1" lighting="false" collision_id="plane" image_id="image_5" />
+<Object id="cube" js_id="vive_right_trackpad_left" interp_time="0.2" pos="4.54 2.07 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Text interp_time="0.2" pos="4 5.2 10.5" xdir="-0.999533 0 -0.030529" ydir="0.013543 0.896223 -0.443396" zdir="0.027361 -0.443603 -0.895806" scale="2 3 1">room.Update Works</Text>
+<Object id="cube" js_id="wmxr_left_trackpad_down" interp_time="0.2" pos="1.1 0.8 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_left_stick_click" interp_time="0.2" pos="1.58 3.06 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="wmxr_left_stick_left" interp_time="0.2" pos="0.8 1.1 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="vive_right_trigger" interp_time="0.2" pos="4.12 1.21 11.28" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="touch_left_menu" interp_time="0.2" pos="-3.1 2.9 11.2" scale="0.2 0.2 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_left_shoulder" interp_time="0.2" pos="1.54 3.27 11.28" scale="0.1 0.1 1" collision_id="cube" />
+<Object id="cube" js_id="xbox_button_a" interp_time="0.2" pos="0.71 2.91 11.28" scale="0.1 0.1 1" collision_id="cube" />
+</Room>
+</FireBoxRoom>
+-->
+<script src="https://web.janusvr.com/janusweb.js"></script>
+<script>elation.janusweb.init({url: document.location.href})</script>
+</body>
+</html>
